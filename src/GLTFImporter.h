@@ -7,7 +7,7 @@
 class GLTFImporter {
 public:
     // Loads a .glb file and prints basic info. Returns true on success.
-    static bool LoadGLB(const std::string& filename);
+    static bool load_glb(const std::string& filename);
     // Loads the first mesh from a .glb file into vertices and indices. Returns true on success.
-    static bool LoadMesh(const std::string& filename, std::vector<Vertex>& outVertices, std::vector<uint32_t>& outIndices);
+    static bool load_mesh(const std::string& filename, std::vector<Vertex>& outVertices, std::vector<uint32_t>& outIndices);
 }; 

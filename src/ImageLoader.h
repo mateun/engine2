@@ -13,8 +13,8 @@ public:
     };
 
     // Loads an image from file. Returns true on success.
-    static bool Load(const std::string& filename, ImageData& outImage);
+    static bool load(const std::string& filename, ImageData& outImage);
 
     // Loads a .glb file and prints basic info. Returns true on success.
-    static bool LoadGLBModel(const char* filename);
+    static bool load_glb_model(const char* filename);
 }; 

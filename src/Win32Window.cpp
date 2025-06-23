@@ -1,6 +1,6 @@
 #include "Win32Window.h"
 
-LRESULT CALLBACK Win32Window::WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK Win32Window::wnd_proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch (msg) {
     case WM_DESTROY:
         PostQuitMessage(0);
@@ -15,7 +15,7 @@ Win32Window::Win32Window(HINSTANCE hInstance, int nCmdShow) : hInstance_(hInstan
 
     WNDCLASSEXW wc = {};
     wc.cbSize = sizeof(WNDCLASSEXW);
-    wc.lpfnWndProc = Win32Window::WndProc;
+    wc.lpfnWndProc = Win32Window::wnd_proc;
     wc.hInstance = hInstance_;
     wc.lpszClassName = CLASS_NAME;
     wc.hCursor = LoadCursorW(nullptr, reinterpret_cast<LPCWSTR>(IDC_ARROW));
@@ -47,7 +47,7 @@ Win32Window::~Win32Window() {
     }
 }
 
-bool Win32Window::ProcessMessages() {
+bool Win32Window::process_messages() {
     MSG msg;
     while (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE)) {
         if (msg.message == WM_QUIT)

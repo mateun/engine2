@@ -12,7 +12,7 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     Win32Window window(hInstance, nCmdShow);
-    VulkanApp vkApp(hInstance, window.GetHwnd(), 800, 600);
+    VulkanApp vkApp(hInstance, window.get_hwnd(), 800, 600);
 
     // Setup camera
     Camera camera;
@@ -25,7 +25,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     // Load mesh
     std::vector<Vertex> meshVertices;
     std::vector<uint32_t> meshIndices;
-    if (!GLTFImporter::LoadMesh("assets/captain_pork.glb", meshVertices, meshIndices)) {
+    if (!GLTFImporter::load_mesh("assets/test.glb", meshVertices, meshIndices)) {
         std::cerr << "Failed to load mesh from test.glb" << std::endl;
         return 1;
     }
@@ -38,7 +38,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     Scene scene;
     scene.root = std::move(node);
     vkApp.set_scene(&scene);
-    vkApp.RecordDrawCommands();
+    vkApp.record_draw_commands();
 
     // Give RenderDoc a chance to attach before Vulkan instance creation
     if constexpr (true) { // Set to true if you want to always allow attaching
@@ -46,9 +46,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     }
 
     // Main loop
-    while (window.ProcessMessages()) {
-        vkApp.DrawFrame();
+    while (window.process_messages()) {
+        vkApp.draw_frame();
     }
-    vkApp.WaitDeviceIdle();
+    vkApp.wait_device_idle();
     return 0;
 } 

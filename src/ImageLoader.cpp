@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 
-bool ImageLoader::Load(const std::string& filename, ImageData& outImage) {
+bool ImageLoader::load(const std::string& filename, ImageData& outImage) {
     int w, h, c;
     unsigned char* data = stbi_load(filename.c_str(), &w, &h, &c, 0);
     if (!data) return false;
@@ -16,7 +16,7 @@ bool ImageLoader::Load(const std::string& filename, ImageData& outImage) {
     return true;
 }
 
-bool ImageLoader::LoadGLBModel(const char* filename) {
+bool ImageLoader::load_glb_model(const char* filename) {
     tinygltf::Model model;
     tinygltf::TinyGLTF loader;
     std::string err, warn;

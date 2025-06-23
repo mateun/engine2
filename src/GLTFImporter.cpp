@@ -3,7 +3,7 @@
 #include "GLTFImporter.h"
 #include <iostream>
 
-bool GLTFImporter::LoadGLB(const std::string& filename) {
+bool GLTFImporter::load_glb(const std::string& filename) {
     tinygltf::Model model;
     tinygltf::TinyGLTF loader;
     std::string err, warn;
@@ -24,7 +24,7 @@ bool GLTFImporter::LoadGLB(const std::string& filename) {
     return true;
 }
 
-bool GLTFImporter::LoadMesh(const std::string& filename, std::vector<Vertex>& outVertices, std::vector<uint32_t>& outIndices) {
+bool GLTFImporter::load_mesh(const std::string& filename, std::vector<Vertex>& outVertices, std::vector<uint32_t>& outIndices) {
     tinygltf::Model model;
     tinygltf::TinyGLTF loader;
     std::string err, warn;
