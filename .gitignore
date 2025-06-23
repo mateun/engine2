@@ -1,0 +1,58 @@
+# Build directories
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+*.sln
+*.vcxproj*
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.user
+*.userosscache
+*.suo
+*.ncb
+*.log
+*.tlog
+*.idb
+*.pdb
+*.ipch
+*.aps
+*.ilk
+*.obj
+*.o
+*.lo
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+*.app
+*.dSYM/
+*.mod
+*.exp
+*.pyc
+*.pyo
+*.pyd
+*.class
+*.jar
+*.war
+*.ear
+*.swp
+*.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+*.directory
+# Vulkan shader binaries
+*.spv
+# Asset cache
+assets/cache/
+# Crash dumps
+*.dmp
+# Editor backup files
+*~
